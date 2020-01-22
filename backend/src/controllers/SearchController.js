@@ -5,7 +5,7 @@ module.exports = {
     async index(request, response) {
         const { latitude, longitude, techs } = request.query;
         
-        const techsArray = parseStringAsArray(techs);
+        const techsArray = parseStringAsArray(techs.toLowerCase());
         
         //Reference: https://docs.mongodb.com/manual/reference/operator/query/
         const devs = await Dev.find({
